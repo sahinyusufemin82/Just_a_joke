@@ -2,9 +2,9 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Premium Cartoon Slap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Cartoon Slap Mobile</title>
 <style>
-
 body{
     margin:0;
     height:100vh;
@@ -17,106 +17,126 @@ body{
 }
 
 /* CAM PANEL */
-.scene.dark::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.7));
-    z-index:15;
+.scene{
+    position:relative;
+    width:90vw;
+    max-width:450px;
+    height:90vh;
+    max-height:600px;
+    backdrop-filter: blur(25px);
+    background:rgba(255,255,255,0.08);
+    border-radius:5vw;
+    box-shadow:0 5vw 10vw rgba(0,0,0,0.4);
+    overflow:hidden;
+    padding-top:2vh;
 }
+
 /* COUNTER */
 .counter{
     text-align:center;
     color:white;
-    font-size:20px;
-    letter-spacing:3px;
-    text-shadow:0 0 10px black;
+    font-size:4vw;
+    letter-spacing:0.2vw;
+    text-shadow:0 0 2vw black;
 }
 
 /* GIRL */
 .girl{
     position:absolute;
-    bottom:110px;
+    bottom:18%;
     left:50%;
     transform:translateX(-50%);
     transition:0.2s;
+    z-index:5;
 }
 
 /* SAÇ (UZUN TURUNCU) */
 .hair{
     position:absolute;
-    width:260px;
-    height:320px;
+    width:60vw;
+    max-width:260px;
+    height:80vw;
+    max-height:320px;
     background:linear-gradient(180deg,#ffb347,#ff7a00,#ff3c00);
     border-radius:140px 140px 100px 100px;
-    top:-120px;
-    left:-40px;
+    top:-30vw;
+    left:-10vw;
     z-index:-1;
     box-shadow:
-        inset 0 20px 40px rgba(255,255,255,0.3),
-        0 25px 50px rgba(0,0,0,0.4);
+        inset 0 5vw 10vw rgba(255,255,255,0.3),
+        0 5vw 10vw rgba(0,0,0,0.4);
 }
 
 /* YÜZ */
 .face{
-    width:190px;
-    height:230px;
+    width:45vw;
+    max-width:190px;
+    height:55vw;
+    max-height:230px;
     background:radial-gradient(circle at 50% 40%, #fff5ec 60%, #ffd8c2);
     border-radius:120px;
     position:relative;
     box-shadow:
-        inset 0 -15px 25px rgba(0,0,0,0.1),
-        0 25px 45px rgba(0,0,0,0.3);
-    border:3px solid rgba(0,0,0,0.2);
+        inset 0 -3vw 5vw rgba(0,0,0,0.1),
+        0 5vw 10vw rgba(0,0,0,0.3);
+    border:0.5vw solid rgba(0,0,0,0.2);
 }
 
 /* GÖZ */
 .eye{
-    width:36px;
-    height:36px;
+    width:9vw;
+    max-width:36px;
+    height:9vw;
+    max-height:36px;
     background:radial-gradient(circle at 40% 40%, #b08968, #5e3b22);
     border-radius:50%;
     position:absolute;
-    top:90px;
-    box-shadow: inset 0 6px 10px rgba(0,0,0,0.4);
+    top:23%;
+    box-shadow: inset 0 1.5vw 2.5vw rgba(0,0,0,0.4);
 }
 
 .eye::after{
     content:"";
-    width:12px;
-    height:12px;
+    width:3vw;
+    height:3vw;
+    max-width:12px;
+    max-height:12px;
     background:white;
     border-radius:50%;
     position:absolute;
-    top:6px;
-    left:8px;
+    top:1.5vw;
+    left:2vw;
 }
 
-.left-eye{left:50px;}
-.right-eye{right:50px;}
+.left-eye{left:12%;}
+.right-eye{right:12%;}
 
 /* ÇİLLER */
 .freckle{
-    width:7px;
-    height:7px;
+    width:2vw;
+    height:2vw;
+    max-width:7px;
+    max-height:7px;
     background:#d99a6c;
     border-radius:50%;
     position:absolute;
     opacity:0.8;
 }
-.f1{top:140px; left:65px;}
-.f2{top:145px; left:80px;}
-.f3{top:140px; right:65px;}
-.f4{top:145px; right:80px;}
+.f1{top:36%; left:15%;}
+.f2{top:37%; left:20%;}
+.f3{top:36%; right:15%;}
+.f4{top:37%; right:20%;}
 
 /* AĞIZ */
 .mouth{
     position:absolute;
-    width:50px;
-    height:25px;
-    border-bottom:4px solid #b56576;
+    width:12vw;
+    max-width:50px;
+    height:6vw;
+    max-height:25px;
+    border-bottom:0.8vw solid #b56576;
     border-radius:50%;
-    bottom:40px;
+    bottom:8%;
     left:50%;
     transform:translateX(-50%);
 }
@@ -124,45 +144,48 @@ body{
 /* EL */
 .hand{
     position:absolute;
-    width:160px;
-    height:110px;
+    width:35vw;
+    max-width:160px;
+    height:25vw;
+    max-height:110px;
     background:radial-gradient(circle at 40% 40%, #ffd6b3, #f4a261);
-    border-radius:60px;
-    right:-220px;
-    top:240px;
+    border-radius:15vw;
+    right:-50%;
+    top:40%;
     transition:0.15s ease;
-    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    box-shadow:0 3vw 10vw rgba(0,0,0,0.4);
+    z-index:10;
 }
 
 /* BUTON */
 .btn{
     position:absolute;
-    bottom:20px;
+    bottom:3%;
     left:50%;
     transform:translateX(-50%);
-    padding:15px 40px;
-    border:none;
-    border-radius:30px;
-    font-size:18px;
-    letter-spacing:2px;
+    padding:3vw 8vw;
+    font-size:4vw;
     font-weight:bold;
+    letter-spacing:0.2vw;
+    border:none;
+    border-radius:10vw;
     cursor:pointer;
     background:linear-gradient(45deg,#ff3c00,#ff8500);
     color:white;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    box-shadow:0 2vw 5vw rgba(0,0,0,0.4);
     transition:0.2s;
 }
 
 .btn:hover{
-    transform:translateX(-50%) scale(1.1);
+    transform:translateX(-50%) scale(1.05);
 }
 
 /* SHAKE */
 @keyframes shake{
     0%{transform:translateX(-50%);}
-    25%{transform:translateX(-65%);}
-    50%{transform:translateX(-35%);}
-    75%{transform:translateX(-55%);}
+    25%{transform:translateX(-55%);}
+    50%{transform:translateX(-45%);}
+    75%{transform:translateX(-52%);}
     100%{transform:translateX(-50%);}
 }
 
@@ -173,14 +196,15 @@ body{
 /* IMPACT TEXT */
 .impact{
     position:absolute;
-    top:180px;
+    top:30%;
     left:50%;
     transform:translateX(-50%) scale(0);
-    font-size:45px;
+    font-size:10vw;
     font-weight:bold;
     color:white;
-    text-shadow:0 0 30px red;
+    text-shadow:0 0 5vw red;
     transition:0.2s;
+    z-index:15;
 }
 
 .impact.show{
@@ -193,19 +217,15 @@ body{
     top:35%;
     width:100%;
     text-align:center;
-    font-size:38px;
+    font-size:8vw;
     font-weight:900;
-    letter-spacing:4px;
+    letter-spacing:0.3vw;
     color:white;
     opacity:0;
     transform:scale(0.5);
     transition:0.6s;
+    text-shadow:0 0 2vw #fff, 0 0 4vw #ff3c00, 0 0 8vw #ff0000;
     z-index:20;
-    text-shadow:
-        0 0 10px #fff,
-        0 0 20px #ff3c00,
-        0 0 40px #ff0000,
-        0 0 80px #ff0000;
 }
 
 .final.show{
@@ -214,26 +234,16 @@ body{
     animation:pulse 1s infinite alternate;
 }
 
-/* Pulse Animasyonu */
 @keyframes pulse{
     from{
         transform:scale(1.2);
-        text-shadow:
-            0 0 10px #fff,
-            0 0 20px #ff3c00,
-            0 0 40px #ff0000,
-            0 0 80px #ff0000;
+        text-shadow:0 0 2vw #fff,0 0 4vw #ff3c00,0 0 8vw #ff0000;
     }
     to{
         transform:scale(1.35);
-        text-shadow:
-            0 0 20px #fff,
-            0 0 40px #ff3c00,
-            0 0 60px #ff0000,
-            0 0 120px #ff0000;
+        text-shadow:0 0 3vw #fff,0 0 6vw #ff3c00,0 0 12vw #ff0000;
     }
 }
-
 </style>
 </head>
 <body>
@@ -244,7 +254,7 @@ body{
 
 <div class="impact" id="impact">POW!</div>
 
-<div class="final" id="final">GO WASH THE DISHES WOMAN</div>
+<div class="final" id="final">GO WASH THE DISHES</div>
 
 <div class="girl" id="girl">
     <div class="face">
@@ -282,8 +292,8 @@ if(count>=7)return;
 count++;
 counter.innerText="HITS "+count+" / 7";
 
-hand.style.right="-80px";
-setTimeout(()=>hand.style.right="-220px",150);
+hand.style.right="-20%";
+setTimeout(()=>hand.style.right="-50%",150);
 
 girl.classList.add("shake");
 impact.classList.add("show");
