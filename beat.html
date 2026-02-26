@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Cartoon Click Game</title>
+<style>
+body{
+    margin:0;
+    background:#ffeef2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+/* SAHNE */
+.scene{
+    position:relative;
+    width:400px;
+    height:500px;
+}
+
+/* KARAKTER */
+.girl{
+    position:absolute;
+    bottom:50px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.face{
+    width:150px;
+    height:170px;
+    background:#fff3e6;
+    border-radius:80px;
+    position:relative;
+    border:3px solid #333;
+}
+
+/* Çiller */
+.freckle{
+    width:6px;
+    height:6px;
+    background:#d89c7a;
+    border-radius:50%;
+    position:absolute;
+}
+
+.f1{top:90px; left:40px;}
+.f2{top:95px; left:55px;}
+.f3{top:92px; right:40px;}
+.f4{top:98px; right:55px;}
+
+/* Gözler */
+.eye{
+    width:25px;
+    height:25px;
+    background:#8c6b3d;
+    border-radius:50%;
+    position:absolute;
+    top:60px;
+}
+
+.left-eye{left:35px;}
+.right-eye{right:35px;}
+
+/* Saç */
+.hair{
+    position:absolute;
+    width:180px;
+    height:120px;
+    background:linear-gradient(#f5d76e,#e6b800);
+    border-radius:100px 100px 0 0;
+    top:-40px;
+    left:-15px;
+    z-index:-1;
+}
+
+/* EL */
+.hand{
+    position:absolute;
+    width:120px;
+    height:80px;
+    background:#ffd1b3;
+    border-radius:40px;
+    right:-150px;
+    top:150px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+}
+
+/* Şok animasyonu */
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    50%{transform:translateX(10px);}
+    75%{transform:translateX(-10px);}
+    100%{transform:translateX(0);}
+}
+
+.shake{
+    animation:shake 0.3s;
+}
+
+/* Yazı */
+.message{
+    position:absolute;
+    top:20px;
+    width:100%;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    color:#ff3366;
+    opacity:0;
+    transform:scale(0);
+    transition:all 0.5s ease;
+}
+
+.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* Bulaşık */
+.items{
+    position:absolute;
+    bottom:-100px;
+    width:100%;
+    text-align:center;
+    font-size:40px;
+    transition:bottom 0.8s ease;
+}
+
+.items.show{
+    bottom:0;
+}
+</style>
+</head>
+<body>
+
+<div class="scene">
+
+    <div class="message" id="msg">Go wash the dishes!</div>
+
+    <div class="girl" id="girl">
+        <div class="face">
+            <div class="hair"></div>
+            <div class="eye left-eye"></div>
+            <div class="eye right-eye"></div>
+
+            <div class="freckle f1"></div>
+            <div class="freckle f2"></div>
+            <div class="freckle f3"></div>
+            <div class="freckle f4"></div>
+        </div>
+    </div>
+
+    <div class="hand" id="hand"></div>
+
+    <div class="items" id="items">
+        🧽 🍽️ 🧼 🫧
+    </div>
+
+</div>
+
+<script>
+let count = 0;
+const hand = document.getElementById("hand");
+const girl = document.getElementById("girl");
+const msg = document.getElementById("msg");
+const items = document.getElementById("items");
+
+hand.addEventListener("click", ()=>{
+
+    if(count >= 7) return;
+
+    count++;
+
+    // El animasyonu
+    hand.style.right = "-50px";
+    setTimeout(()=>{
+        hand.style.right = "-150px";
+    },150);
+
+    // Karakter sarsılma
+    girl.classList.add("shake");
+    setTimeout(()=>{
+        girl.classList.remove("shake");
+    },300);
+
+    if(count === 7){
+        setTimeout(()=>{
+            msg.classList.add("show");
+            items.classList.add("show");
+        },500);
+    }
+});
+</script>
+
+</body>
+</html>
