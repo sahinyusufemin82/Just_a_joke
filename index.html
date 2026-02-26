@@ -212,25 +212,25 @@ body{
 }
 
 /* FINAL */
-.final{
-    position:absolute;
+.final {
+    position: fixed; /* absolute yerine fixed, her zaman üstte */
     top:35%;
-    width:100%;
+    left:50%;
+    transform:translateX(-50%) scale(0.5);
+    width:90%;
     text-align:center;
-    font-size:8vw;
+    font-size:8vw; /* mobil için responsive */
     font-weight:900;
     letter-spacing:0.3vw;
     color:white;
     opacity:0;
-    transform:scale(0.5);
     transition:0.6s;
     text-shadow:0 0 2vw #fff, 0 0 4vw #ff3c00, 0 0 8vw #ff0000;
-    z-index:20;
+    z-index:999; /* kesinlikle en üstte */
 }
-
-.final.show{
+.final.show {
     opacity:1;
-    transform:scale(1.2);
+    transform:translateX(-50%) scale(1.2);
     animation:pulse 1s infinite alternate;
 }
 
